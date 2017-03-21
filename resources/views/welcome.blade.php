@@ -8,7 +8,9 @@
         <title>Learn Redis</title>
     </head>
     <body>
-        <h1>Learn Redis</h1>
-        <h2>You are visitor number: {{ $visits }}</h2>
+        <h1>Some Video</h1>
+        <p>
+            This video has been downloaded {{ $downloads ?? 'no' }} times.
+        </p>
     </body>
 </html>
