@@ -2,14 +2,17 @@
 
 use Illuminate\Support\Facades\Redis;
 
-Route::get('videos/{id}', function ($id) {
-    $downloads = Redis::get("videos.{$id}.downloads");
+Route::get('articles/trending', function () {
 
-   	return view('welcome', compact('downloads'));
+    $trending = Redis::zrevrange('trending_articles', 0, 5);
+
+    return $trending;
 });
 
-Route::get('videos/{id}/download', function ($id) {
-	Redis::incr("videos.{$id}.downloads");
+Route::get('articles/{article}', function (App\Article $article) {
 
-	return back();
+    Redis::zincrby('trending_articles', 1, $article->id);
+
+    return $article;
 });
+
