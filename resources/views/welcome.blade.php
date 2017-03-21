@@ -9,5 +9,6 @@
     </head>
     <body>
         <h1>Learn Redis</h1>
+        <h2>You are visitor number: {{ $visits }}</h2>
     </body>
 </html>
